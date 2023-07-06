@@ -1,12 +1,12 @@
-FROM clux/muslrust:1.70.0 as builder
+FROM messense/rust-musl-cross:aarch64-musl as builder
 WORKDIR /app
-ARG CARGO_BUILD_TARGET=x86_64-unknown-linux-musl
+ARG CARGO_BUILD_TARGET=aarch64-unknown-linux-musl
 
 # comma-seperated list of features to enable
 ARG CARGO_BUILD_FEATURES=default
 
 # This can be set to release using --build-arg
-ARG RUST_RELEASE_MODE="debug"
+ARG RUST_RELEASE_MODE="release"
 
 COPY . .
 
